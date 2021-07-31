@@ -83,7 +83,7 @@ pipeline {
         stage('deploy') {
             steps {
                 withCredentials([usernameColonPassword(credentialsId: 'tomcat_remote_credential', variable: 'tomcat_credentials')]) {
-                   sh "curl -v -u ${tomcat_credentials} -T result.war 'http://ec2-54-173-215-111.compute-1.amazonaws.com:8080/manager/text/deploy?path=/springdeploy2&update=true'"   
+                   sh "curl -v -u ${tomcat_credentials} -T result.war 'http://ec2-54-173-215-111.compute-1.amazonaws.com:8080/manager/text/deploy?path=/springdeploy3&update=true'"   
                }
             }
         }		
