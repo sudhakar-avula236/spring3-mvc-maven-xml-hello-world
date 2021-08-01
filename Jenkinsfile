@@ -12,7 +12,7 @@ pipeline {
         // This can be http or https
         NEXUS_PROTOCOL = "http"
         // Where your Nexus is running
-        NEXUS_URL = "ec2-54-235-60-14.compute-1.amazonaws.com:8081"
+        NEXUS_URL = "ec2-100-26-45-160.compute-1.amazonaws.com:8081"
         // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "spring-app"
         // Jenkins credential id to authenticate to Nexus OSS
@@ -83,7 +83,7 @@ pipeline {
         stage('deploy') {
             steps {
                 withCredentials([usernameColonPassword(credentialsId: 'tomcat_remote_credential', variable: 'tomcat_credentials')]) {
-                   sh "curl -v -u ${tomcat_credentials} -T result.war 'http://ec2-54-173-215-111.compute-1.amazonaws.com:8080/manager/text/deploy?path=/springdeploy3&update=true'"   
+                   sh "curl -v -u ${tomcat_credentials} -T result.war 'http://ec2-18-206-147-65.compute-1.amazonaws.com:8080/manager/text/deploy?path=/springdeploy3&update=true'"   
                }
             }
         }		
